@@ -8,13 +8,14 @@ type Props = {
   image?: string;
   option?: React.ReactNode;
   style?: string;
+  id?: string;
 };
 
-const Banner = ({ title, description, image, style, option }: Props) => {
+const Banner = ({ title, description, image, style, option, id }: Props) => {
   const [params, setParams] = useState("");
   return (
     <Full>
-      <div className="py-[100px] bg-[#2E4494]">
+      <div className="py-[100px] bg-[#2E4494]" id={id}>
         <div className="max-w-[744px] mx-auto">
           <h1
             className={`w-full text-center text-white font-bold text-[55px] leading-[68px] ${style} mb-2.5`}

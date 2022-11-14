@@ -1,5 +1,5 @@
 import React from "react";
-import { _brand } from "./_Brand";
+import { _brand }  from './data'
 
 type Props = {
   title: string;

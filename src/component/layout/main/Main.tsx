@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Checked from "../../Checked";
-import CreatorsBusiness from "../../creatorBusiness/CreatorsBusiness";
-import { _data } from "../../creatorBusiness/data";
-import Item from "../../creatorBusiness/Item";
+import CreatorsBusiness from "../../creator-business/CreatorsBusiness";
+import { _data } from "../../creator-business/data";
+import Item from "../../creator-business/Item";
 import { _dataFrequently } from "../../frequently/data";
 import Frequently from "../../frequently/Frequently";
 import FrequentlyItem from "../../frequently/FrequentlyItem";
@@ -18,7 +19,12 @@ import PromoteItem from "../../promote/PromoteItem";
 import Testimonital from "../../testimonital/Testimonital";
 import Container from "../Container";
 import Full from "../Full";
-import { _bestInClass, _getadson, _optimize, _promoteYoutube } from "./checkedData";
+import {
+  _bestInClass,
+  _getadson,
+  _optimize,
+  _promoteYoutube,
+} from "./checkedData";
 
 const _banner = {
   title: "The best way for YouTube channels to grow fast",
@@ -72,6 +78,7 @@ const Main = () => {
   return (
     <div className="mx-[-16px] pt-20">
       <Banner
+        id="banner"
         title={_banner.title}
         description={_banner.description}
         image="https://vrocket.co/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fnew-trustpilot.ad354290.png&w=640&q=100"
@@ -109,9 +116,11 @@ const Main = () => {
             style={"max-w-[450px]"}
           >
             {
+              <Link to="#banner">
               <button className="px-[17px] py-[14px] bg-[#4F49F5] text-white rounded">
                 Learn More
               </button>
+              </Link>
             }
           </Right>
           <Left image="https://vrocket.co/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsetup-in-minutes.61d20fe2.png&w=640&q=100" />
@@ -225,19 +234,28 @@ const Main = () => {
             description="If you are wondering how to get ads on youtube, VRocket is here to help you understand how to get ads on your YouTube videos. In marketing, you always have the option to get more visibility through paid YouTube ads. But the best part is that you don't have to spend a huge amount to run YouTube ads. VRocket can help you promote your YouTube channel using YouTube ads starting at only $30. We offer the best price for high-quality,100% real YouTube views. You can see the ad campaign results, data, and statistics in your VRocket dashboard. All you need to do is create a YouTube video and optimize it; leave the rest to us. We know how to get ads on your YouTube videos and promote them on YouTube so that your videos reach your target audience. You can choose from a variety of ads, such as:"
           >
             {_getadson.map((item, index) => {
-              return <Checked style="text-[15px] leading-[30px]" title={item.title} content={item.content} key={item.title} />;
+              return (
+                <Checked
+                  style="text-[15px] leading-[30px]"
+                  title={item.title}
+                  content={item.content}
+                  key={item.title}
+                />
+              );
             })}
           </Right>
         </Section>
         <Frequently title={"Frequently Ask Quesiton"}>
-            {_dataFrequently.map((item, index) => {
-              return (
-                <FrequentlyItem title={item.title} content={item.content}/>
-              )
-            })}
+          {_dataFrequently.map((item, index) => {
+            return <FrequentlyItem title={item.title} content={item.content} />;
+          })}
         </Frequently>
       </Container>
-      <Banner title="Promoting your YouTube videos to real people has never been easier" style="text-[38px] leading-[58px]" option={true}/>
+      <Banner
+        title="Promoting your YouTube videos to real people has never been easier"
+        style="text-[38px] leading-[58px]"
+        option={true}
+      />
     </div>
   );
 };
