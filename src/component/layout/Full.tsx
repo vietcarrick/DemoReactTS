@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 type Props = {
-    children: React.ReactNode,
     style?: string,
 }
 
-const Full = ({children, style} : Props) => {
+const Full:React.FC< PropsWithChildren <Props>>  = ({children, style}) => {
     return (
         <div className={`w-full px-4 ${style}`}>
             {children}

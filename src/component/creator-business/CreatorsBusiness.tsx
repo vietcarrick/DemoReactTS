@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 type Props = {
     title: string, 
     description: string,
-    children: React.ReactNode
 }
 
-const CreatorsBusiness = ({title, description, children}: Props) => {
+const CreatorsBusiness:React.FC< PropsWithChildren <Props>> = ({title, description, children}) => {
     return (
         <div className='py-[80px]'>
             <h4 className='max-w-[480px] text-[26px] leading-[38px] text-center mb-4 mx-auto font-medium'>{title}</h4>

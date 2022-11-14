@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 type Props = {
     title: string,
     description?: string,
     style?: string,
-    children?: React.ReactNode,
     number?: string,
 }
 
-const Right = ({style, children, title, description, number}: Props) => {
+const Right:React.FC< PropsWithChildren <Props>>  = ({style, children, title, description, number}) => {
     return (
         <div className={`w-[50%]`}>
             <div className={`px-5 ${style}`}>
